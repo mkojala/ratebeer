@@ -1,0 +1,135 @@
+irb(main):005:0> Brewery.create name:"BrewDog", year:2007
+   (0.0ms)  begin transaction
+  SQL (0.2ms)  INSERT INTO "breweries" ("name", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "BrewDog"], ["year", 2007], ["created_at", "2016-01-28 10:18:27.195483"], ["updated_at", "2016-01-28 10:18:27.195483"]]
+   (15.9ms)  commit transaction
+=> #<Brewery id: 8, name: "BrewDog", year: 2007, created_at: "2016-01-28 10:18:27", updated_at: "2016-01-28 10:18:27">
+irb(main):006:0> Beer.create name:"Punk IPA", style:"IPA";, brewery_id:8
+SyntaxError: (irb):6: syntax error, unexpected ',', expecting end-of-input
+Beer.create name:"Punk IPA", style:"IPA";, brewery_id:8
+                                          ^
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:110:in `start'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:9:in `start'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:68:in `console'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands.rb:17:in `<top (required)>'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `require'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `block in require'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:240:in `load_dependency'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `require'
+	from /home/mkojala/Home/Documents/ratebeer/bin/rails:9:in `<top (required)>'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `load'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `block in load'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:240:in `load_dependency'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `load'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/commands/rails.rb:6:in `call'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/command_wrapper.rb:38:in `call'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:185:in `block in serve'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:156:in `fork'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:156:in `serve'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:131:in `block in run'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:125:in `loop'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:125:in `run'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application/boot.rb:18:in `<top (required)>'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from -e:1:in `<main>'irb(main):007:0> Beer.create name:"Punk IPA", style:"IPA", brewery_id:8
+   (0.2ms)  begin transaction
+  SQL (0.5ms)  INSERT INTO "beers" ("name", "style", "brewery_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Punk IPA"], ["style", "IPA"], ["brewery_id", 8], ["created_at", "2016-01-28 10:22:10.403728"], ["updated_at", "2016-01-28 10:22:10.403728"]]
+   (17.5ms)  commit transaction
+=> #<Beer id: 20, name: "Punk IPA", style: "IPA", brewery_id: 8, created_at: "2016-01-28 10:22:10", updated_at: "2016-01-28 10:22:10">
+irb(main):008:0> Beer.create name:"Nanny State", style:"lowalcohol", brewery_id:8
+   (0.1ms)  begin transaction
+  SQL (0.2ms)  INSERT INTO "beers" ("name", "style", "brewery_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Nanny State"], ["style", "lowalcohol"], ["brewery_id", 8], ["created_at", "2016-01-28 10:22:42.230191"], ["updated_at", "2016-01-28 10:22:42.230191"]]
+   (6.6ms)  commit transaction
+=> #<Beer id: 21, name: "Nanny State", style: "lowalcohol", brewery_id: 8, created_at: "2016-01-28 10:22:42", updated_at: "2016-01-28 10:22:42">
+irb(main):009:0> Ratings.create score:10, beer_id:20
+NameError: uninitialized constant Ratings
+	from (irb):9
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:110:in `start'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:9:in `start'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:68:in `console'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands.rb:17:in `<top (required)>'
+	from /home/mkojala/Home/Documents/ratebeer/bin/rails:9:in `<top (required)>'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from -e:1:in `<main>'
+irb(main):010:0> b= beer_id:20
+SyntaxError: (irb):10: syntax error, unexpected tINTEGER, expecting tSTRING_CONTENT or tSTRING_DBEG or tSTRING_DVAR or tSTRING_END
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:110:in `start'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:9:in `start'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:68:in `console'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands.rb:17:in `<top (required)>'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `require'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `block in require'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:240:in `load_dependency'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `require'
+	from /home/mkojala/Home/Documents/ratebeer/bin/rails:9:in `<top (required)>'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `load'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `block in load'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:240:in `load_dependency'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `load'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/commands/rails.rb:6:in `call'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/command_wrapper.rb:38:in `call'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:185:in `block in serve'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:156:in `fork'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:156:in `serve'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:131:in `block in run'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:125:in `loop'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:125:in `run'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application/boot.rb:18:in `<top (required)>'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+irb(main):011:0> b = Beer.where beer_id:20
+  Beer Load (0.7ms)  SELECT "beers".* FROM "beers" WHERE "beers"."beer_id" = 20
+ActiveRecord::StatementInvalid: SQLite3::SQLException: no such column: beers.beer_id: SELECT "beers".* FROM "beers" WHERE "beers"."beer_id" = 20
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sqlite3-1.3.11/lib/sqlite3/database.rb:91:in `initialize'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sqlite3-1.3.11/lib/sqlite3/database.rb:91:in `new'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sqlite3-1.3.11/lib/sqlite3/database.rb:91:in `prepare'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activerecord-4.2.5/lib/active_record/connection_adapters/sqlite3_adapter.rb:296:in `block in exec_query'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activerecord-4.2.5/lib/active_record/connection_adapters/abstract_adapter.rb:472:in `block in log'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activerecord-4.2.5/lib/active_record/connection_adapters/abstract_adapter.rb:466:in `log'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activerecord-4.2.5/lib/active_record/connection_adapters/sqlite3_adapter.rb:293:in `exec_query'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activerecord-4.2.5/lib/active_record/connection_adapters/abstract/database_statements.rb:355:in `select'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activerecord-4.2.5/lib/active_record/connection_adapters/abstract/database_statements.rb:32:in `select_all'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activerecord-4.2.5/lib/active_record/connection_adapters/abstract/query_cache.rb:70:in `select_all'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activerecord-4.2.5/lib/active_record/querying.rb:39:in `find_by_sql'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activerecord-4.2.5/lib/active_record/relation.rb:639:in `exec_queries'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activerecord-4.2.5/lib/active_record/relation.rb:515:in `load'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activerecord-4.2.5/lib/active_record/relation.rb:243:in `to_a'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activerecord-4.2.5/lib/active_record/relation.rb:630:in `inspect'
+... 1 levels...
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:9:in `start'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:68:in `console'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands.rb:17:in `<top (required)>'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `require'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `block in require'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:240:in `load_dependency'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `require'
+	from /home/mkojala/Home/Documents/ratebeer/bin/rails:9:in `<top (required)>'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `load'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `block in load'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:240:in `load_dependency'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `load'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /home/mkojala/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from -e:1:in `<main>'irb(main):012:0> b = Beer.find 20
+  Beer Load (0.2ms)  SELECT  "beers".* FROM "beers" WHERE "beers"."id" = ? LIMIT 1  [["id", 20]]
+=> #<Beer id: 20, name: "Punk IPA", style: "IPA", brewery_id: 8, created_at: "2016-01-28 10:22:10", updated_at: "2016-01-28 10:22:10">
+irb(main):013:0> b.ratings.create score:10
+   (0.2ms)  begin transaction
+  SQL (0.2ms)  INSERT INTO "ratings" ("score", "beer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["score", 10], ["beer_id", 20], ["created_at", "2016-01-28 10:30:09.914243"], ["updated_at", "2016-01-28 10:30:09.914243"]]
+   (12.6ms)  commit transaction
+=> #<Rating id: 4, score: 10, beer_id: 20, created_at: "2016-01-28 10:30:09", updated_at: "2016-01-28 10:30:09">
+irb(main):014:0> b = Beer.find 21
+  Beer Load (0.3ms)  SELECT  "beers".* FROM "beers" WHERE "beers"."id" = ? LIMIT 1  [["id", 21]]
+=> #<Beer id: 21, name: "Nanny State", style: "lowalcohol", brewery_id: 8, created_at: "2016-01-28 10:22:42", updated_at: "2016-01-28 10:22:42">
+irb(main):015:0> b.ratings.create score:15
+   (0.2ms)  begin transaction
+  SQL (0.4ms)  INSERT INTO "ratings" ("score", "beer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["score", 15], ["beer_id", 21], ["created_at", "2016-01-28 10:30:33.243146"], ["updated_at", "2016-01-28 10:30:33.243146"]]
+   (15.7ms)  commit transaction
+=> #<Rating id: 5, score: 15, beer_id: 21, created_at: "2016-01-28 10:30:33", updated_at: "2016-01-28 10:30:33">
+

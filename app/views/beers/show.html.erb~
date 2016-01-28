@@ -21,7 +21,11 @@
 Has <%= pluralize(@beer.ratings.count, 'rating')%>, average <%= @beer.average_rating%>
 <% end %>
 </p>
-
+<ul>
+ <% @beers.each do |beer| %>
+   <li> <%= @beer.to_s %> </li>
+ <% end %>
+</ul>
 
 <%= link_to 'Edit', edit_beer_path(@beer) %> |
 <%= link_to 'Back', beers_path %>

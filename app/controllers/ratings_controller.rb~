@@ -1,0 +1,19 @@
+class RatingsController < ApplicationController
+
+  def index
+    @ratings = Rating.all
+  end
+ def show
+  end
+ def edit
+  end
+  def new
+    @rating = Rating.new
+byebug
+    @beers = Beer.all
+  end
+  def create
+    Rating.create params.require(:rating).permit(:score, :beer_id)
+ redirect_to ratings_path
+  end
+end

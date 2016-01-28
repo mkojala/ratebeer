@@ -18,6 +18,12 @@
  <% end %>
 </p>
 
+<ul>
+ <% @beers.each do |beer| %>
+   <li> <%= @beer.to_s %> </li>
+ <% end %>
+</ul>
+
 <%= link_to 'Edit', edit_brewery_path(@brewery) %> |
 <%= link_to 'Back', breweries_path %>
-<%= link_to 'list of beers', beers_path %>
+
