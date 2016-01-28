@@ -10,7 +10,7 @@ class Beer < ActiveRecord::Base
 		sum / ratings.count.to_f
 	end
 
-	def display_beer_option_text
+	def to_s
 		"#{name} - #{brewery.name}"
 	end
 end
