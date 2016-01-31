@@ -15,4 +15,5 @@ def print_report
 	def to_s
 		"#{name}"
 	end
+
 end
