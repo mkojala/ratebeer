@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Memberships</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Beer club</th>
+      <th>City</th>
+      <th>Member</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @memberships.each do |membership| %>
+      <tr>
+        <td><%= membership.beer_club.name %></td>
+        <td><%= membership.beer_club.city %></td>
+	<td><%= membership.user.username %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Membership', new_membership_path %>

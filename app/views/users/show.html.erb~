@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Username:</strong>
-  <%= @user.username %>
+  <h1><%= @user.username %></h1>
+
 </p>
 
 <p><% if @user.ratings.empty? %>
@@ -11,11 +11,14 @@
 Has made <%= pluralize(@user.ratings.count, 'rating')%>, average <%= @user.average_rating%>
 <% end %>
 </p>
+<p>Member of: <% @user.beer_clubs.each do |beerclub|%> <%=link_to beerclub.name, beerclub%> <%end%>
+</p>
+<p><h2>Ratings:</h2></p>
 <ul>
  <% @user.ratings.each do |rating| %>
    <li> <%= rating.to_s %> <%= link_to 'delete', rating_path(rating.id), method: :delete, data:{ confirm: 'Are you sure?' } %> </li>
  <% end %>
 </ul>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Edit', edit_user_path(@user) %> 
 <%= link_to 'Back', users_path %>

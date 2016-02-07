@@ -10,8 +10,8 @@ class SessionsController < ApplicationController
         redirect_to :back, notice: "User #{params[:username]} does not exist!"
       else
     # uudelleen ohjataan käyttäjä omalle sivulleen
-        session[:user_id] = user.id, notice: "Welcome back!"
-        redirect_to user
+        session[:user_id] = user.id
+        redirect_to user, notice: "Welcome back!"
 	end
   end
 
