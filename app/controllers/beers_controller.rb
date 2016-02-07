@@ -1,5 +1,6 @@
 class BeersController < ApplicationController
   before_action :set_beer, only: [:show, :edit, :update, :destroy]
+efore_action :set_breweries_and_styles_for_template, only: [:new, :edit, :create]
 
   # GET /beers
   # GET /beers.json
@@ -10,6 +11,10 @@ class BeersController < ApplicationController
   # GET /beers/1
   # GET /beers/1.json
   def show
+  end
+  def set_breweries_and_styles_for_template
+    @breweries = Brewery.all
+    @styles = ["Weizen", "Lager", "Pale ale", "IPA", "Porter"]
   end
 
   # GET /beers/new
@@ -28,6 +33,7 @@ class BeersController < ApplicationController
 
   # POST /beers
   # POST /beers.json
+
   def create
     @beer = Beer.new(beer_params)
 
