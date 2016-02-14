@@ -19,10 +19,8 @@ before_action :set_breweries_and_styles_for_template, only: [:new, :edit, :creat
 
   # GET /beers/new
   def new
-   @ratings = Rating.all
    @beer = Beer.new
-   @breweries = Brewery.all
-   @styles = ["Weizen", "Lager", "Pale ale", "IPA", "Porter"]
+   set_breweries_and_styles_for_template
   end
 
   # GET /beers/1/edit
@@ -42,8 +40,7 @@ before_action :set_breweries_and_styles_for_template, only: [:new, :edit, :creat
         format.html { redirect_to beers_path, notice: 'Beer was successfully created.' }
         format.json { render :show, status: :created, location: @beer }
       else
-        @breweries = Brewery.all
-        @styles = ["Weizen", "Lager", "Pale ale", "IPA", "Porter"]
+        set_breweries_and_styles_for_template
         format.html { render :new }
         format.json { render json: @beer.errors, status: :unprocessable_entity }
       end
