@@ -12,6 +12,10 @@ efore_action :set_breweries_and_styles_for_template, only: [:new, :edit, :create
   # GET /beers/1.json
   def show
   end
+  def set_breweries_and_styles_for_template
+    @breweries = Brewery.all
+    @styles = ["Weizen", "Lager", "Pale ale", "IPA", "Porter"]
+  end
 
   # GET /beers/new
   def new
@@ -29,10 +33,6 @@ efore_action :set_breweries_and_styles_for_template, only: [:new, :edit, :create
 
   # POST /beers
   # POST /beers.json
-  def set_breweries_and_styles_for_template
-    @breweries = Brewery.all
-    @styles = ["Weizen", "Lager", "Pale ale", "IPA", "Porter"]
-  end
 
   def create
     @beer = Beer.new(beer_params)
