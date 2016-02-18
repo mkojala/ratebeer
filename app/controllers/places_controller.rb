@@ -2,13 +2,17 @@ class PlacesController < ApplicationController
   def index
   end
 
+  def show
+    places = BeermappingApi.places_in(session[:last_city])
+    @place = places.find{|place| place.id == params[:id]}
+  end
   def search
-    url = 'http://stark-oasis-9187.herokuapp.com/api/'
-
-    response = HTTParty.get "#{url}helsinki"
-    places_from_api = response.parsed_response["bmp_locations"]["location"]
-    @places = [ Place.new(places_from_api.first) ]
-
-    render :index
+    @places = BeermappingApi.places_in(params[:city])
+    session[:last_city] = params[:city]
+        if @places.empty?
+          redirect_to places_path, notice: "No locations in #{params[:city]}"
+        else
+          render :index
+    end
   end
 end

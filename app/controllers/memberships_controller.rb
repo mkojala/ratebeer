@@ -26,14 +26,15 @@ class MembershipsController < ApplicationController
   # POST /memberships.json
   def create
     @membership = Membership.new(membership_params)
-
-      if @membership.save
-      current_user.memberships << @membership
-      redirect_to user_path current_user
-      else
-      @beer_clubs = BeerClub.all
-      render :new
-      end
+       club = BeerClub.find membership_params[:beer_club_id]
+       if not current_user.in? club.members and @membership.save
+         current_user.memberships << @membership
+         @membership.save
+         redirect_to @membership.user, notice: "You've joined #{@membership.beer_club}"
+       else
+         @beer_clubs = BeerClub.all
+         render :new
+       end
 
   end
 
