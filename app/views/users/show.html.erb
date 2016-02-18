@@ -11,6 +11,11 @@
 Has made <%= pluralize(@user.ratings.count, 'rating')%>, average <%= @user.average_rating%>
 <% end %>
 </p>
+<% if @user.ratings.any? %>
+  <p>Favorite style <%= @user.favorite_style %></p>
+
+  <p>Favorite brewery <%= @user.favorite_brewery.name %></p>
+<% end %>
 <p>Member of: <% @user.beer_clubs.each do |beerclub|%> <%=link_to beerclub.name, beerclub%> <%end%>
 </p>
 <p><h2>Ratings:</h2></p>
