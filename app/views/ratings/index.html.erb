@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 <h2>List of ratings</h2>
 <p> Number of ratings: <%= @ratings.count %> </p>
-<ul>
+<ul class="list-group">
  <% @ratings.each do |rating| %>
-   <li> <%= rating.to_s%> <%= link_to rating.user.username, rating.user%> </li>
+   <li class="list-group-item"> <%= rating.to_s%> <%= link_to rating.user.username, rating.user%> </li>
  <% end %>
 </ul>
