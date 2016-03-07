@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 gem 'bcrypt', '~> 3.1.7'
 gem 'httparty'
+gem 'jquery-turbolinks'
+gem 'selenium-webdriver'
+gem 'database_cleaner'
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
 end

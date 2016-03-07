@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   get 'kaikki_bisset', to: 'beers#index'
   get 'signup', to: 'users#new'
   get 'signin', to: 'sessions#new'
+  get 'beerlist', to:'beers#list'
+  get 'ngbeerlist', to:'beers#nglist'
+  get 'ngbrewerylist', to:'breweries#nglist'
   delete 'signout', to: 'sessions#destroy'
   post 'places', to:'places#search'
   resources :places, only:[:index, :show]
